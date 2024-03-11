@@ -66,13 +66,41 @@ public class PersonDao {
     }
 
     public static int delete(int id) {
-        int status = 0;
+        int status;
 
         try {
             Connection connection = PersonDao.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("delete from crudexample where id =?");
             preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
+            status = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return status;
+    }
+
+    public static int update(Person updatetPerson) {
+        int status;
+
+        try {
+            Connection connection = PersonDao.getConnection();
+            String sql = """
+                    update crudexample
+                    set username = ?,
+                    userpass = ?,
+                    useremail = ?,
+                    usercountry = ?
+                    where id = ?
+                    """;
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, updatetPerson.getUserName());
+            preparedStatement.setString(2, updatetPerson.getUserPass());
+            preparedStatement.setString(3, updatetPerson.getUserEmail());
+            preparedStatement.setString(4, updatetPerson.getUserCountry());
+            preparedStatement.setInt(5, updatetPerson.getId());
+
+            status = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

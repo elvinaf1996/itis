@@ -36,3 +36,13 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/conf/
+/logs/
+/temp/
+/webapps/
+/work/
+/src/main/java/itis/hw5/catalina/conf/
+/src/main/java/itis/hw5/catalina/logs/
+/src/main/java/itis/hw5/catalina/temp/
+/src/main/java/itis/hw5/catalina/webapps/
+/src/main/java/itis/hw5/catalina/work/Catalina/localhost/homeWork/

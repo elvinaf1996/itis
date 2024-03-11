@@ -1,5 +1,6 @@
 package itis.hw5;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,13 +30,13 @@ public class Register extends HttpServlet {
         person.setUserCountry(userCountry);
 
         int status = PersonDao.save(person);
-        if (status > 0) {
-            printWriter.print("<h1>User succesfully saved</h1>");
-            request.getRequestDispatcher("index.html").include(request, response);
-        } else {
-            printWriter.print("Something went wrong");
-        }
+        request.getRequestDispatcher("index.html").include(request, response);
 
+        if (status > 0) {
+            printWriter.print("<h2 class=\"center\"> User succesfully saved</h2>");
+        } else {
+            printWriter.print("<h2 class=\"center\">Something went wrong, try again later</h2>");
+        }
 
         printWriter.close();
     }

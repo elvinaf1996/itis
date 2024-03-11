@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Insert title here</title>
+    <style>
+        table {
+            margin: 0 auto;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
 
-<h1>Add New Employee</h1>
+<body style="background-color: lightblue;">
+<h2 class="center">Add New Employee</h2>
 <form action="reg" method="post">
     <table>
         <tr><td>Name:</td><td><input type="text" name="userName"/></td></tr>
@@ -17,6 +25,8 @@
                 <option>India</option>
                 <option>USA</option>
                 <option>UK</option>
+                <option>Germany</option>
+                <option>Russia</option>
                 <option>Other</option>
             </select>
         </td></tr>
@@ -25,7 +35,7 @@
 </form>
 
 <br/>
-<a href="view">view all users</a>
+<a href="view" class="center">view all users</a>
 
 </body>
 </html>
